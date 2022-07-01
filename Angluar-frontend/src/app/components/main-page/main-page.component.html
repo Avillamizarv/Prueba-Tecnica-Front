@@ -1,0 +1,209 @@
+<br />
+<!-- Table -->
+<mat-card class="container">
+  <mat-card-header class="title-card-h">
+    <mat-card-title> Usuarios </mat-card-title>
+  </mat-card-header>
+
+  <div class="actions-header">
+    <button
+      mat-raised-button
+      class="derecha"
+      color="primary"
+      [title]="'Agregar Usuario'"
+    >
+      <mat-icon matPrefix>add</mat-icon>Agregar Usuario
+    </button>
+  </div>
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+      <mat-table
+        mat-table
+        class="full-width-table"
+        [dataSource]="dataSource"
+        matSort
+      >
+        <!-- Identification -->
+        <ng-container matColumnDef="identification">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>
+            Identificación
+          </mat-header-cell>
+          <mat-cell
+            mat-cell
+            *matCellDef="let row"
+            [attr.data-label]="' Identificación'"
+          >
+            {{ row.identification | uppercase }}
+          </mat-cell>
+        </ng-container>
+        <!-- Name -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>
+            Nombre
+          </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let row" [attr.data-label]="'Nombre'">
+            {{ row.name | uppercase }}
+          </mat-cell>
+        </ng-container>
+        <!-- Telephone -->
+        <ng-container matColumnDef="telephone">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>
+            Teléfono
+          </mat-header-cell>
+          <mat-cell
+            mat-cell
+            *matCellDef="let row"
+            [attr.data-label]="'Teléfono'"
+          >
+            {{ row.telephone }}
+          </mat-cell>
+        </ng-container>
+        <!-- Actions -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell
+            mat-header-cell
+            *matHeaderCellDef
+            class="d-flex justify-content-center acciones-c"
+            >Acciones</mat-header-cell
+          >
+          <mat-cell
+            mat-cell
+            *matCellDef="let row"
+            [attr.data-label]="'Acciones'"
+            class="d-flex justify-content-center acciones-c"
+          >
+            <button
+              mat-mini-fab
+              color="primary"
+              [title]="'Editar'"
+              class="actionBtn"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-mini-fab
+              color="primary"
+              [title]="'Eliminar'"
+              class="actionBtn"
+            >
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row
+          mat-header-row
+          *matHeaderRowDef="displayedColumns"
+        ></mat-header-row>
+        <mat-row
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          [ngClass]="{ highlight: selectedRowIndex === row.id }"
+        ></mat-row
+      ></mat-table>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<!-- Identification -->
+<!-- <ng-container matColumnDef="identification">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>
+          Identificación
+        </mat-header-cell>
+        (click)="deleteUser(row.id)"
+        (click)="editUser(row.id)"
+        <mat-cell
+          mat-cell
+          *matCellDef="let row"
+          [attr.data-label]="' Identificación'"
+        >
+          {{ row.identification | uppercase }}
+        </mat-cell>
+      </ng-container> -->
+<!-- Name -->
+<!-- <ng-container matColumnDef="name">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>
+         Nombre
+        </mat-header-cell>
+        <mat-cell
+          mat-cell
+          *matCellDef="let row"
+          [attr.data-label]="
+            'Nombre'
+          "
+        >
+          {{ row.name | uppercase }}
+        </mat-cell>
+      </ng-container> -->
+<!-- Telephone -->
+<!-- <ng-container matColumnDef="telephone">
+        <mat-header-cell
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+        >
+         Teléfono
+        </mat-header-cell>
+        <mat-cell
+          mat-cell
+          *matCellDef="let row"
+          [attr.data-label]="
+            'Teléfono'
+          "
+        >
+          {{ row.telephone }}
+        </mat-cell>
+      </ng-container> -->
+
+<!-- <ng-container matColumnDef="actions">
+        <mat-header-cell
+          mat-header-cell
+          *matHeaderCellDef
+          class="d-flex justify-content-center acciones-c"
+          >Acciones</mat-header-cell
+        >
+        <mat-cell
+          mat-cell
+          *matCellDef="let row"
+          [attr.data-label]="'Acciones'"
+          class="d-flex justify-content-center acciones-c"
+        >
+            <button
+              mat-mini-fab
+              color="primary"
+              [title]="'Editar'"
+              class="actionBtn"
+              (click)="editUser(row.id)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-mini-fab
+              color="primary"
+              [title]="'Eliminar'"
+              class="actionBtn"
+              (click)="deleteUser(row.id)"
+            >
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"
+      ></mat-header-row>
+      <mat-row
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        [ngClass]="{ highlight: selectedRowIndex === row.id }"
+      ></mat-row>
+    </mat-table>
+    <mat-paginator
+      #paginator
+      [length]="dataSource?.data.length"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+    >
+    </mat-paginator>
+  </div>
+  <br />
+</mat-card-content> -->
